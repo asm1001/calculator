@@ -1,5 +1,20 @@
 //Define functions
+function sum(a, b) {
+  return a + b;
+}
 
+function subtract(a, b) {
+  return a - b;
+}
+
+function multiply(a, b) {
+  return a * b;
+}
+
+function divide(a, b) {
+  return a / b;
+}
+//--
 let output = document.querySelector("#output");
 
 let firstNumber = 0;
@@ -18,31 +33,31 @@ document.querySelectorAll("#calculator .number").forEach((button) => {
   });
 });
 
-document.querySelectorAll('#calculator .operation').forEach(buton => {
-    button.addEventListener('click', event => {
-        firstNumber = Number.parseInt(output.value)
-        operation = event.currentTarget.dataset.action
-        resetAfterOperation = true        
-    })
-})
+document.querySelectorAll("#calculator .operation").forEach((button) => {
+  button.addEventListener("click", (event) => {
+    firstNumber = Number.parseInt(output.value);
+    operation = event.currentTarget.dataset.action;
+    resetAfterOperation = true;
+  });
+});
 
-const equal = document.querySelector('#calculator .equal')
-equal.addEventListener('click', () => {
-    if (!operation){
-        return
-    }
-    resetAfterOperation = true
-    let secondNumber = Number.parseInt(output.value, 10)
+const equal = document.querySelector("#calculator .equal");
+equal.addEventListener("click", () => {
+  if (!operation) {
+    return;
+  }
+  resetAfterOperation = true;
+  let secondNumber = Number.parseInt(output.value, 10);
 
-    if (operation === 'sum') {
-        output.value = sum(firstNumber, secondNumber)
-    } else if (operation === 'subtract') {
-        output.value = subtract(firstNumber, secondNumber)
-    } else if (operation === 'multiply') {
-        output.value = multiply(firstNumber, secondNumber)
-    } else if (operation === 'divide') {
-        output.value = divide(firstNumber, secondNumber)
-    }
-    //reset operation
-    operation = null
-})
+  if (operation === "sum") {
+    output.value = sum(firstNumber, secondNumber);
+  } else if (operation === "subtract") {
+    output.value = subtract(firstNumber, secondNumber);
+  } else if (operation === "multiply") {
+    output.value = multiply(firstNumber, secondNumber);
+  } else if (operation === "divide") {
+    output.value = divide(firstNumber, secondNumber);
+  }
+  //reset operation
+  operation = null;
+});
