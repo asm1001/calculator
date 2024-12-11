@@ -1,20 +1,5 @@
-//Define functions
-function sum(a, b) {
-  return a + b;
-}
+import { run } from "./run";
 
-function subtract(a, b) {
-  return a - b;
-}
-
-function multiply(a, b) {
-  return a * b;
-}
-
-function divide(a, b) {
-  return a / b;
-}
-//--
 let output = document.querySelector("#output");
 
 let firstNumber = 0;
@@ -49,15 +34,7 @@ equal.addEventListener("click", () => {
   resetAfterOperation = true;
   let secondNumber = Number.parseInt(output.value, 10);
 
-  if (operation === "sum") {
-    output.value = sum(firstNumber, secondNumber);
-  } else if (operation === "subtract") {
-    output.value = subtract(firstNumber, secondNumber);
-  } else if (operation === "multiply") {
-    output.value = multiply(firstNumber, secondNumber);
-  } else if (operation === "divide") {
-    output.value = divide(firstNumber, secondNumber);
-  }
+  output.value = run(operation, firstNumber, secondNumber)
   //reset operation
   operation = null;
 });
